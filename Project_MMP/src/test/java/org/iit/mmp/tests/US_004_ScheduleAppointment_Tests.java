@@ -13,6 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class US_004_ScheduleAppointment_Tests {
 	WebDriver driver;
+	//Writing testcase for scheduleAppointment userstory us_004 of MMP application
 	@Test
 	public void validateScheduleAppointment() throws Exception
 	{
