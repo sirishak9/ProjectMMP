@@ -10,7 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class ResgiterPatientTest {
 	WebDriver driver;
-	@Test(description="US_004 Validating the approve patient")
+	@Test(description="US_004 Validating the Resgiter patient on the Page")
 	public void registerPatientdetails() throws Exception {
 		launchBrowser();
 //		RegisterPatientPage regobj = new RegisterPatientPage(driver);
