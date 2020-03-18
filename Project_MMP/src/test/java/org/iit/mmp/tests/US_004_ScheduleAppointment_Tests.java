@@ -18,7 +18,7 @@ public class US_004_ScheduleAppointment_Tests {
 	{
 		SoftAssert sa = new SoftAssert();
 		launchBrowser();
-		HashMap<String,String> hMap = bookanAppointment("Beth","02/25/2020","10Am","Fever");
+		HashMap<String,String> hMap = bookanAppointment("Beth","03/25/2020","10Am","Fever");
 		sa.assertTrue(validateApptDetailsinHomePage(hMap));
 		sa.assertTrue(validateApptDetailsinScheduleApptPage(hMap));
 		sa.assertAll();
