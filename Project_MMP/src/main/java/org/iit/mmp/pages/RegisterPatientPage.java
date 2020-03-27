@@ -39,6 +39,7 @@ public class RegisterPatientPage {
 		//License
 		WebElement licenseTxtField = driver.findElement(By.id("license"));
 		long licenseValue = 10000000 + srnd.nextInt(90000000);
+		//long licenseValue = 10000000 + rnd.nextInt(90000000);
 		licenseTxtField.sendKeys("" + licenseValue);
 		hMap.put("license", licenseTxtField.getAttribute(("value")));
 		licenseTxtField.click();
