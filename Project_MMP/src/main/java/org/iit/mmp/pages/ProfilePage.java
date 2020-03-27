@@ -14,13 +14,13 @@ public class ProfilePage {
 		this.driver = driver;
 	}
 
-	public void profile() throws InterruptedException {
+	public HashMap<String, String> profile() throws InterruptedException {
 
 		Random rd = new Random();
 		HashMap<String, String> hMap = new HashMap<String, String>();
 
 		// click the profile menu
-		driver.findElement(By.xpath("//span[contains(text(),'Profile']")).click();
+		driver.findElement(By.xpath("//span[contains(text(),'Profile')]")).click();
 
 		// title
 		driver.findElement(By.className("panel-title"));
@@ -95,6 +95,7 @@ public class ProfilePage {
 		save.click();
 		
 		driver.switchTo().alert().accept();
+		return hMap;
 
 
 	}

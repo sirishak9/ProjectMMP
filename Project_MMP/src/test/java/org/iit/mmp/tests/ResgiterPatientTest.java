@@ -1,9 +1,14 @@
 package org.iit.mmp.tests;
 
-import org.iit.mmp.pages.LoginRegPage;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.Set;
+
+import org.iit.mmp.pages.RegisterPatientPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -13,25 +18,25 @@ public class ResgiterPatientTest {
 	@Test(description="US_004 Validating the Resgiter patient on the Page")
 	public void registerPatientdetails() throws Exception {
 		launchBrowser();
-//		RegisterPatientPage regobj = new RegisterPatientPage(driver);
+	RegisterPatientPage regobj = new RegisterPatientPage(driver);
 		//regobj.register("Riaty","Riaty123");
-//		Random rnd = new Random();
-//		String username = "testyun"+ (char)(65+rnd.nextInt(26))  + rnd.nextInt(100);
-//		String password = "testypd"+(char)(65+rnd.nextInt(26))+  rnd.nextInt(200);
-//		//HashMap<String,String> hMap = regPage.register(username, password);
-//		HashMap<String,String> hMap = regobj.register(username, password);
-//		Set<String> keySetValues = hMap.keySet();
-//		for(String key : keySetValues)
-//		{
-//			System.out.println("Key is ::"   + key);
-//			System.out.println("Value is ::" +hMap.get(key));
-//		}
-//		String expectedMsg = "Thank you for registering with MMP.";
-//		String actualMsg = hMap.get("message");
-//		Assert.assertEquals(actualMsg.trim(),expectedMsg.trim());
-		LoginRegPage lrp = new LoginRegPage(driver);
+		Random rnd = new Random();
+		String username = "testyZun"+ (char)(65+rnd.nextInt(26))  + rnd.nextInt(100);
+		String password = "testyZpd"+(char)(65+rnd.nextInt(26))+  rnd.nextInt(200);
+		//HashMap<String,String> hMap = regPage.register(username, password);
+		HashMap<String,String> hMap = regobj.register(username, password);
+		Set<String> keySetValues = hMap.keySet();
+		for(String key : keySetValues)
+		{
+			System.out.println("Key is ::"   + key);
+			System.out.println("Value is ::" +hMap.get(key));
+		}
+		String expectedMsg = "Thank you for registering with MMP.";
+		String actualMsg = hMap.get("message");
+		Assert.assertEquals(actualMsg.trim(),expectedMsg.trim());
+		//LoginRegPage lrp = new LoginRegPage(driver);
 		//lrp.loginRegPage("Riaty", "Riaty123");
-		lrp.loginRegPage("testyunZ10","testypdE112");
+		//lrp.loginRegPage("testyunZ10","testypdE112");
 	}
 	public void launchBrowser() throws Exception {
 	
@@ -40,9 +45,10 @@ public class ResgiterPatientTest {
 		//driver.get("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/");
 		driver.get("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/");
 		driver.manage().window().maximize();
-		driver.findElement(By.linkText("Patient Login")).click();
-		Thread.sleep(3000);
-		//driver.findElement(By.linkText("Register")).click();
-		driver.findElement(By.linkText("Login")).click();
+		//driver.findElement(By.linkText("Patient Login")).click();
+
+		driver.findElement(By.linkText("Register")).click();
+     	Thread.sleep(3000);
+		//driver.findElement(By.linkText("Login")).click();
 	}
 }

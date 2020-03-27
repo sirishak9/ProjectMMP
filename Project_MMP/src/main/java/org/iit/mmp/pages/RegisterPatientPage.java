@@ -1,9 +1,11 @@
 package org.iit.mmp.pages;
 
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -20,6 +22,7 @@ public class RegisterPatientPage {
 
 	public HashMap<String, String> register(String userName, String password) throws Exception {
 		Random rnd = new Random();
+		SecureRandom srnd = new SecureRandom();
 		HashMap<String, String> hMap = new HashMap<String, String>();
 		//FistName
 		WebElement firstNameTxtField = driver.findElement(By.id("firstname"));
@@ -35,7 +38,7 @@ public class RegisterPatientPage {
 		datePickerTxtField.sendKeys(sdf.format(new Date()));
 		//License
 		WebElement licenseTxtField = driver.findElement(By.id("license"));
-		long licenseValue = rnd.nextInt(99999999);
+		long licenseValue = 10000000 + srnd.nextInt(90000000);
 		licenseTxtField.sendKeys("" + licenseValue);
 		hMap.put("license", licenseTxtField.getAttribute(("value")));
 		licenseTxtField.click();
@@ -43,7 +46,7 @@ public class RegisterPatientPage {
 		Thread.sleep(3000);
 		//SSN
 		WebElement ssnTxtField = driver.findElement(By.id("ssn"));
-		long ssnValue = rnd.nextInt(999999999);
+		long ssnValue = 100000000 + rnd.nextInt(900000000);
 		ssnTxtField.sendKeys("" + ssnValue);
 		hMap.put("ssn", ssnTxtField.getAttribute(("value")));
 		ssnTxtField.click();
@@ -53,36 +56,36 @@ public class RegisterPatientPage {
 		hMap.put("state", stateTxtField.getAttribute(("value")));
 		//city
 		WebElement cityTxtField = driver.findElement(By.id("city"));
-		cityTxtField.sendKeys("seattle");
+		cityTxtField.sendKeys("Seattle");
 		hMap.put("city", cityTxtField.getAttribute(("value")));
 		//address
 		WebElement addressTxtField = driver.findElement(By.id("address"));
-		addressTxtField.sendKeys("10 Ryn Street");
+		addressTxtField.sendKeys("10 Ryn court");
 		hMap.put("address", addressTxtField.getAttribute(("value")));
 		//Zipcode
 		WebElement zipcodeTxtField = driver.findElement(By.id("zipcode"));
-		long zipValue = rnd.nextInt(99999);
+		int zipValue = 10000 + rnd.nextInt(90000);
 		zipcodeTxtField.sendKeys("" + zipValue);
 		hMap.put("zipcode", zipcodeTxtField.getAttribute(("value")));
 		//age
 		WebElement ageTxtField = driver.findElement(By.id("age"));
-		long ageValue = rnd.nextInt(90);
+		int ageValue = 10 + rnd.nextInt(90);
 		ageTxtField.sendKeys("" + ageValue);
 		hMap.put("age", ageTxtField.getAttribute(("value")));
 		//height
 		WebElement heightTxtField = driver.findElement(By.id("height"));
-		long heightValue = rnd.nextInt(90);
+		int heightValue = 100 +rnd.nextInt(99);
 		heightTxtField.sendKeys("" + heightValue);
 		hMap.put("height", heightTxtField.getAttribute(("value")));
 		//weight
 		WebElement weightTxtField = driver.findElement(By.id("weight"));
-		long weightValue = rnd.nextInt(90);
+		int weightValue = 10 + rnd.nextInt(99);
 		weightTxtField.sendKeys("" + weightValue);
 		hMap.put("weight", weightTxtField.getAttribute(("value")));
 		//email
 		WebElement emailTxtField = driver.findElement(By.id("email"));
 		emailTxtField.sendKeys(
-				"testEmail" + ((char) (65 + rnd.nextInt(26)) + "" + (char) (65 + rnd.nextInt(26))) + "@gmail.com");
+				"testyzEmail" + ((char) (65 + rnd.nextInt(26)) + "" + (char) (65 + rnd.nextInt(26))) + "@gmail.com");
 		hMap.put("email", emailTxtField.getAttribute(("value")));
 		//username
 		WebElement usernameTxtField = driver.findElement(By.id("username"));
