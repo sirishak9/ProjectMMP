@@ -10,6 +10,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+/**
+ * @author Sirisha
+ */
 public class AdminPage {
 	WebDriver driver;
 
@@ -27,6 +30,10 @@ public class AdminPage {
 		driver.get("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/");
 		System.out.println("Inside the admin url");
 	}
+
+	/**
+	 * Navgiation to office login
+	 */
 
 	public void navigatetoDoctorLoginButton() throws InterruptedException {
 		WebElement e = driver.findElement(By.xpath("//a[contains(text(),'Office Login')]"));
@@ -57,6 +64,10 @@ public class AdminPage {
 
 	}
 
+	/*
+	 * Approving the user
+	 */
+
 	public void approvePatient(String name) throws InterruptedException {
 		driver.findElement(By.xpath("//span[contains(text(), 'Users')] ")).click();
 
@@ -79,6 +90,9 @@ public class AdminPage {
 
 	}
 
+	/**
+	 * Navgiation to Patients Tab in the menu of the page
+	 */
 	public void navigateToPatientsTab() throws InterruptedException {
 		driver.findElement(By.xpath("//span[contains(text(),'Patients')]")).click();
 		driver.findElement(By.xpath("//input[@id='search']")).sendKeys("Ria");
@@ -87,6 +101,9 @@ public class AdminPage {
 		System.out.println("Entering name in searchbox");
 	}
 
+	/**
+	 * Entering add Prescription Details in the page
+	 */
 	public void addPresciptionDetails() throws InterruptedException {
 
 		driver.findElement(By.xpath("(//table//tr//td/a[contains(text(),'Ria')])[1]")).click();
@@ -94,7 +111,7 @@ public class AdminPage {
 		driver.findElement(By.xpath("//a//input[@value='Add Precription']")).click();
 		Thread.sleep(5000);
 		Select sel = new Select(driver.findElement(By.xpath("//select[@id='app_date']")));
-		sel.selectByIndex(6);
+		sel.selectByIndex(5);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//input[@name='p_name']")).sendKeys("Aleve");
 		driver.findElement(By.xpath("//textarea[@name='p_desc']"))
@@ -106,6 +123,10 @@ public class AdminPage {
 		alt.accept();
 
 	}
+
+	/**
+	 * Clicking on logout
+	 */
 
 	public void logout() {
 		driver.findElement(By.xpath("//span[contains(text(),'Logout')]")).click();

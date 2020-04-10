@@ -10,6 +10,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+/**
+ * 
+ * @author Sirisha
+ *
+ */
 public class LoginPage {
 	WebDriver driver;
 
@@ -51,11 +56,14 @@ public class LoginPage {
 
 	// Validate patient login name
 	public boolean login(String userName, String password) {
-
+		// username textbox
 		driver.findElement(By.id("username")).sendKeys(userName);
+		// password textbox
 		driver.findElement(By.id("password")).sendKeys(password);
+		// login button
 		driver.findElement(By.name("submit")).click();
 		System.out.println("Login is Successful");
+		// checking username is appeared on the page
 		boolean result = driver.findElement(By.xpath("//h3[@class='page-header']")).getText().contains("ria1");
 		String text = driver.findElement(By.xpath("//h3[@class='page-header']")).getText();
 		System.out.println(text);
@@ -65,7 +73,7 @@ public class LoginPage {
 
 	// Validate ModuleTab from menu
 	public boolean navigateToModule(String modulename) {
-
+		// clicking on the main Tab of the page
 		driver.findElement(By.xpath("//span[contains(text(),'" + modulename + "')]")).click();
 		System.out.println(" The Module name is " + modulename + " is clicked ");
 		boolean result2 = true;
@@ -75,12 +83,13 @@ public class LoginPage {
 
 	// Validate SubModule Tab
 	public boolean viewHistory() throws Exception {
+		// clicking on Sub Tab of the page
 		driver.findElement(By.xpath("//button[contains(text(),'View History')]")).click();
 		driver.findElement(By.xpath("//p//a//input[@value='Past Prescription']")).click();
 		Thread.sleep(4000);
 		List<WebElement> list = driver.findElements(By.xpath("//table//ul//li"));
 		int size = list.size();
-		System.out.println("The List size is " +size );
+		System.out.println("The List size is " + size);
 		for (int i = 0; i < size; i++) {
 			// list.get(i).click();
 			System.out.println("The Value of " + i + " is :" + list.get(i).getText());
@@ -89,13 +98,12 @@ public class LoginPage {
 		System.out.println("View History is Clicked");
 		boolean result3 = true;
 		return result3;
-		
+
 	}
-	
 
 	// Validate patient login logout tab
 	public boolean logout() {
-
+		// clicking on the logout tab
 		driver.findElement(By.xpath("//a[@class='dropdown' and @href='logout.php']")).click();
 		System.out.println("logout is successful");
 		boolean result4 = true;
@@ -104,6 +112,7 @@ public class LoginPage {
 
 	// Validate driver close
 	public boolean windowClose() {
+		// closing the browser
 		driver.close();
 		System.out.println("Browser closed");
 		boolean result5 = true;
