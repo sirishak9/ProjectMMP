@@ -15,6 +15,7 @@ public class LoginTest {
 		lp.patientUrl();
 		lp.login("ria1","Ria12345");
 		//lp.login("summer", "Test123@");
+		//lp.login("winben", "Test123@");
 		lp.navigateToModule("Profile");
 		lp.viewHistory();
 	}

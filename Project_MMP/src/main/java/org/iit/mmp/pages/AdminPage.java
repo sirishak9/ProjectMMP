@@ -86,9 +86,9 @@ public class AdminPage {
 		Thread.sleep(4000);
 		System.out.println("Entering name in searchbox");
 	}
-	
-public void addPresciptionDetails() throws InterruptedException {
-		
+
+	public void addPresciptionDetails() throws InterruptedException {
+
 		driver.findElement(By.xpath("(//table//tr//td/a[contains(text(),'Ria')])[1]")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//a//input[@value='Add Precription']")).click();
