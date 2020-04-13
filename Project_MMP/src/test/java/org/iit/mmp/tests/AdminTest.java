@@ -24,8 +24,9 @@ public class AdminTest {
 		ap.navigatetoDoctorLoginButton();
 		ap.adminLogin("Thomas_444", "Edison_444");
 		// ap.approvePatient("qwee");
-		ap.navigateToPatientsTab();
-		ap.addPresciptionDetails();
+		ap.navigateToPatientsTab("ria");
+		ap.addPresciptionDetails("Ria","AlevePM","Take 1 pill at night for cold");
+		ap.logout();
 		/*
 		 * AddPrescriptionPage app = new AddPrescriptionPage(driver); app.adminUrl();
 		 * app.navigatetoDoctorLoginButton(); app.adminLogin("Thomas_444","Edison_444");

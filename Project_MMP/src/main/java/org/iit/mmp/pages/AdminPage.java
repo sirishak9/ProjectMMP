@@ -93,9 +93,9 @@ public class AdminPage {
 	/**
 	 * Navgiation to Patients Tab in the menu of the page
 	 */
-	public void navigateToPatientsTab() throws InterruptedException {
+	public void navigateToPatientsTab(String name) throws InterruptedException {
 		driver.findElement(By.xpath("//span[contains(text(),'Patients')]")).click();
-		driver.findElement(By.xpath("//input[@id='search']")).sendKeys("Ria");
+		driver.findElement(By.xpath("//input[@id='search']")).sendKeys(name);
 		driver.findElement(By.xpath("//input[@value='search']")).click();
 		Thread.sleep(4000);
 		System.out.println("Entering name in searchbox");
@@ -104,18 +104,18 @@ public class AdminPage {
 	/**
 	 * Entering add Prescription Details in the page
 	 */
-	public void addPresciptionDetails() throws InterruptedException {
+	public void addPresciptionDetails(String patName,String prespName,String prespDescp) throws InterruptedException {
 
-		driver.findElement(By.xpath("(//table//tr//td/a[contains(text(),'Ria')])[1]")).click();
+		driver.findElement(By.xpath("(//table//tr//td/a[contains(text(),'" + patName + "')])[1]")).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath("//a//input[@value='Add Precription']")).click();
 		Thread.sleep(5000);
 		Select sel = new Select(driver.findElement(By.xpath("//select[@id='app_date']")));
 		sel.selectByIndex(5);
 		Thread.sleep(3000);
-		driver.findElement(By.xpath("//input[@name='p_name']")).sendKeys("Aleve");
+		driver.findElement(By.xpath("//input[@name='p_name']")).sendKeys(prespName);
 		driver.findElement(By.xpath("//textarea[@name='p_desc']"))
-				.sendKeys("Take 1 pill for every 6 hours ---Chest pain");
+				.sendKeys(prespDescp);
 		driver.findElement(By.xpath("//input[@value='submit']")).click();
 		Alert alt = driver.switchTo().alert();
 		Thread.sleep(4000);
