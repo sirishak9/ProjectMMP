@@ -1,6 +1,7 @@
 package org.iit.mmp.pages;
 
 import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -95,9 +96,32 @@ public class LoginPage {
 			System.out.println("The Value of " + i + " is :" + list.get(i).getText());
 
 		}
-		System.out.println("View History is Clicked");
-		boolean result3 = true;
-		return result3;
+		
+		  System.out.println(size);
+		    Random rnd = new Random();
+			int rndselect = rnd.nextInt(size);
+			System.out.println(rndselect);
+			System.out.println(list.get(rndselect).getText());
+			Thread.sleep(3000);
+			list.get(rndselect).click();
+			Thread.sleep(3000);
+			driver.navigate().back();
+			driver.navigate().forward();
+			//driver.navigate().to("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/fullpress.php?id=3967");
+			Thread.sleep(3000);
+			String actual = driver.findElement(By.xpath(" //div[@class='panel-body nopadding']/h2")).getText();
+			System.out.println(actual);
+			Thread.sleep(3000);
+			String expected = driver.findElement(By.tagName("h2")).getText();
+			System.out.println(expected);
+			boolean result3 = false;
+			if(actual.equalsIgnoreCase(expected)) {
+				 result3  = true;
+			}
+		
+			return result3;
+		
+		
 
 	}
 
