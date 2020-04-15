@@ -3,6 +3,7 @@ package org.iit.mmp.pages;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+/* Hi Rina Here*/
 
 public class LoginRegPage {
 	WebDriver driver;
