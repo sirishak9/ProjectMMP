@@ -6,6 +6,11 @@ import org.iit.mmp.pages.ViewHistoryPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 
+/**
+ * 
+ * @author Sirisha
+ *
+ */
 public class AdminTest {
 	WebDriver driver;
 	AddPrescriptionPage app = new AddPrescriptionPage(driver);
@@ -19,15 +24,13 @@ public class AdminTest {
 		ap.navigatetoDoctorLoginButton();
 		ap.adminLogin("Thomas_444", "Edison_444");
 		// ap.approvePatient("qwee");
-		ap.navigateToPatientsTab();
-		ap.addPresciptionDetails();
+		ap.navigateToPatientsTab("ria");
+		ap.addPresciptionDetails("Ria","AlevePM","Take 1 pill at night for cold");
+		ap.logout();
 		/*
-		 * AddPrescriptionPage app = new AddPrescriptionPage(driver); 
-		 * app.adminUrl();
-		 * app.navigatetoDoctorLoginButton(); 
-		 * app.adminLogin("Thomas_444","Edison_444");
-		 *  app.navigateToPatientsTab(); Thread.sleep(4000);
-		 * app.addPresciptionDetails();
+		 * AddPrescriptionPage app = new AddPrescriptionPage(driver); app.adminUrl();
+		 * app.navigatetoDoctorLoginButton(); app.adminLogin("Thomas_444","Edison_444");
+		 * app.navigateToPatientsTab(); Thread.sleep(4000); app.addPresciptionDetails();
 		 */
 //		ViewHistoryPage vhp = new ViewHistoryPage(driver);
 //		vhp.viewHistory();

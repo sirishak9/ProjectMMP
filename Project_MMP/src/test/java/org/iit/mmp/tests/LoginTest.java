@@ -6,6 +6,12 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+/**
+ * 
+ * @author Sirisha
+ *
+ */
+ //author Sirisha
 public class LoginTest {
 	WebDriver driver;
 
@@ -35,7 +41,7 @@ public class LoginTest {
 		// Validation for SubModule Tab List
 		boolean result3 = lp.viewHistory();
 		sa.assertTrue(result3);
-		
+
 //		ViewHistoryPage vhp = new ViewHistoryPage(driver);
 //		  vhp.viewHistory();
 
